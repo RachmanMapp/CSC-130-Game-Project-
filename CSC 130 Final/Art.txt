@@ -1,0 +1,11 @@
+Art/sokRight0.png*sokRight0
+Art/sokRight1.png*sokRight1
+Art/sokRight2.png*sokRight2
+Art/sokRight3.png*sokRight3
+Art/sokRight4.png*sokRight4
+Art/sokRight5.png*sokRight5
+Art/sokRight6.png*sokRight6
+Art/sokRight7.png*sokRight7
+Art/soketFront.png*soketFront
+Art/gameBackground.png*gameBackground
+Art/gameToaster.png*gameToaster

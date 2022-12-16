@@ -1,0 +1,5 @@
+dialogue0*Sok: 'I'm hungry'
+dialogue1*Sok: 'ooOooOoo I'm itchin'
+dialogue2*Sok: 'Who turned the lights off'
+dialogue3*Sok: 'Somebody go find my fork'
+dialogue4*Sok: 'Where's my fork?'
