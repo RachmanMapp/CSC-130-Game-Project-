@@ -23,7 +23,10 @@ public class Main{
 	
 	public static ArrayList<spriteInfo> rightSprites = new ArrayList<>();    // sprites walking right
 	public static ArrayList<spriteInfo> downSprites = new ArrayList<>();     // sprites walking down
-	public static ArrayList<BoundingBox> boundingBoxes = new ArrayList<>();  // all the bounding boxes (item index matches index in isShowDescriptions)
+	public static ArrayList<spriteInfo> leftSprites = new ArrayList<>();     // sprites walking left
+	public static ArrayList<spriteInfo> upSprites = new ArrayList<>();       // sprites walking up
+	
+	public static ArrayList<BoundingBox> boundingBoxes = new ArrayList<>();  // all the bounding boxes (inspectable item index matches index in isShowDescriptions)
 	
 	public static ArrayList<Boolean> isShowDescriptions = new ArrayList<>(); // for inspecting items, 1 element per inspectable item.
 	public static String direction = "";                                     // to tell which way soket is facing to inspect items   
@@ -56,16 +59,26 @@ public class Main{
 			descriptionMap.put(key, value); // add key/value pair to the HashMap
 		}
 		
-		// load right walking frames into ArrayList
+		// load walking right frames into ArrayList
 		int frameToAdd = 0;	// start at the first frame, "walk0"
-		for (frameToAdd = 0; frameToAdd < 8; frameToAdd++) {
+		for (frameToAdd = 0; frameToAdd <= 7; frameToAdd++) {
 			rightSprites.add(new spriteInfo(new Vector2D(50, 500), "sokRight" + frameToAdd));
 		}
 		
-		// load down walking frames into ArrayList
-		//for (frameToAdd = 0; frameToAdd < 1; frameToAdd++) {
-		downSprites.add(new spriteInfo(new Vector2D(50, 500), "soketFront"));
-		//}
+		// load walking down frames into ArrayList
+		for (frameToAdd = 0; frameToAdd <= 7; frameToAdd++) {
+			downSprites.add(new spriteInfo(new Vector2D(50, 500), "sokDown" + frameToAdd));
+		}
+		
+		// load walking left frames into ArrayList
+		for (frameToAdd = 0; frameToAdd <= 7; frameToAdd++) {
+			leftSprites.add(new spriteInfo(new Vector2D(50, 500), "sokLeft" + frameToAdd));
+		}
+		
+		// load walking up frames into ArrayList
+		for (frameToAdd = 0; frameToAdd <= 7; frameToAdd++) {
+			upSprites.add(new spriteInfo(new Vector2D(50, 500), "sokUp" + frameToAdd));
+		}
 		
 		currentSprite = rightSprites.get(0);  // starting sprite
 		
@@ -100,10 +113,6 @@ public class Main{
 		if (isAnyDescriptionShown()) {
 			ctrl.drawString(20, 100, "shown", Color.GREEN);
 		} else ctrl.drawString(20, 100, "not shown", Color.GREEN);
-		
-		// TEST
-		String sokLine = descriptionMap.get("description" + 0); 
-		ctrl.drawString(20, 170, sokLine, Color.WHITE);
 		
 		// TEST - show sprite bounding box
 		ctrl.drawString(200, 300, "x1: " + boundingBoxes.get(0).getX1(), Color.WHITE);

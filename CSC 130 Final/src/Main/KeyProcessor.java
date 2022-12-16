@@ -9,8 +9,8 @@ import timer.stopWatchX;
 public class KeyProcessor{
 	// Static Fields
 	private static char last = ' ';			// For debouncing purposes
-	private static stopWatchX sw = new stopWatchX(60);
-	private static stopWatchX timer = new stopWatchX(60);
+	private static stopWatchX sw = new stopWatchX(70);
+	private static stopWatchX timer = new stopWatchX(70);
 	
 	// Static Method(s)
 	public static void processKey(char key){
@@ -43,7 +43,7 @@ public class KeyProcessor{
 					Main.currentSpriteIndex = 0;	// reset to the first element, which is the first frame
 				}
 				
-				Main.currentSprite = Main.rightSprites.get(Main.currentSpriteIndex);	// get next frame
+				Main.currentSprite = Main.upSprites.get(Main.currentSpriteIndex);	// get next frame
 				Main.currentCoords.setY(Main.currentCoords.getY() - 8);                 // move up 8 pixels
 				Main.currentSprite.setCoords(Main.currentCoords.getX(),Main. currentCoords.getY());	// update y to be 8 pixels to the up, x stays the same\
 				
@@ -67,7 +67,7 @@ public class KeyProcessor{
 							Main.currentSpriteIndex = 7;
 						}
 						
-						Main.currentSprite = Main.rightSprites.get(Main.currentSpriteIndex); // reset sprite to before collision
+						Main.currentSprite = Main.upSprites.get(Main.currentSpriteIndex); // reset sprite to before collision
 						
 						// reset bounding boxes to before collision
 						Main.boundingBoxes.get(0).setX1(Main.currentCoords.getX());        // LEFT - top left corner is the left bound, take its X
@@ -92,7 +92,7 @@ public class KeyProcessor{
 					Main.currentSpriteIndex = 0;	// reset to the first element, which is the first frame
 				}
 				
-				Main.currentSprite = Main.rightSprites.get(Main.currentSpriteIndex);	// get next frame
+				Main.currentSprite = Main.leftSprites.get(Main.currentSpriteIndex);	// get next frame
 				Main.currentCoords.setX(Main.currentCoords.getX() - 8);                 
 				Main.currentSprite.setCoords(Main.currentCoords.getX(),Main. currentCoords.getY());	// update x to be 8 pixels to the left, y stays the same
 				
@@ -116,7 +116,7 @@ public class KeyProcessor{
 							Main.currentSpriteIndex = 7;
 						}
 						
-						Main.currentSprite = Main.rightSprites.get(Main.currentSpriteIndex); // reset sprite to before collision
+						Main.currentSprite = Main.leftSprites.get(Main.currentSpriteIndex); // reset sprite to before collision
 						
 						// reset bounding boxes to before collision
 						Main.boundingBoxes.get(0).setX1(Main.currentCoords.getX());        // LEFT - top left corner is the left bound, take its X
@@ -141,7 +141,7 @@ public class KeyProcessor{
 					Main.currentSpriteIndex = 0;	// reset to the first element, which is the first frame
 				}
 				
-				Main.currentSprite = Main.rightSprites.get(Main.currentSpriteIndex);	// get next frame
+				Main.currentSprite = Main.downSprites.get(Main.currentSpriteIndex);	// get next frame
 				Main.currentCoords.setY(Main.currentCoords.getY() + 8);                  
 				Main.currentSprite.setCoords(Main.currentCoords.getX(),Main. currentCoords.getY());	// update y to be 8 pixels down, x stays the same
 				
@@ -165,7 +165,7 @@ public class KeyProcessor{
 							Main.currentSpriteIndex = 7;
 						}
 						
-						Main.currentSprite = Main.rightSprites.get(Main.currentSpriteIndex); // reset sprite to before collision
+						Main.currentSprite = Main.downSprites.get(Main.currentSpriteIndex); // reset sprite to before collision
 						
 						// reset bounding boxes to before collision
 						Main.boundingBoxes.get(0).setX1(Main.currentCoords.getX());        // LEFT - top left corner is the left bound, take its X
@@ -229,7 +229,7 @@ public class KeyProcessor{
 				
 			break;
 			
-		case '$': // spacebar
+		case '$': // spacebar - inspect item
 			for (int index = 1; index <= 1; index ++) {  // check for fridge and toaster
 				if (BoundingBox.isInspectable(Main.boundingBoxes.get(0), Main.boundingBoxes.get(index), Main.direction)) {
 					Main.isShowDescriptions.set(index, true);
